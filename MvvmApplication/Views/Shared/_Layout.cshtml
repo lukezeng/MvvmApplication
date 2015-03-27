@@ -39,12 +39,13 @@
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul><!--/.nav-collapse -->
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </div>
             </div>
-            <!--/.nav-collapse -->
-            <section id="login">
-                @Html.Partial("_LoginPartial")
-            </section>
         </div>
     </div>
     <div class="container" ng-controller="HomeCtrl">
