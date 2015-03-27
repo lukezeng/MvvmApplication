@@ -3,12 +3,14 @@ var app = angular.module('app', [
    'controllers'
 ]);
 
-app.config(['$routeProvider',
-            function ($routeProvider) {
-               $routeProvider.when('/', {
-                  templateUrl: 'partials/home.html',
-                  controller: 'HomeController'
-               }).otherwise({
-                               redirectTo: '/'
-                            });
-            }]);
+app.config([
+    '$routeProvider',
+    function($routeProvider) {
+        $routeProvider.when('/', {
+            templateUrl: 'partials/home.html',
+            controller: 'HomeController'
+        }).otherwise({
+            redirectTo: '/'
+        });
+    }
+]);
