@@ -24,7 +24,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{active:isActive('')}"><a href="/">Home</a></li>
+                    <li ng-class="{active:isActive('/')}"><a href="/#/">Home</a></li>
                     <li ng-class="{active:isActive('/about')}"><a href="/#/about">About</a></li>
                     <li ng-class="{active:isActive('/contact')}"><a href="/#/contact">Contact</a></li>
                     <li class="dropdown">
@@ -48,11 +48,9 @@
             </div>
         </div>
     </div>
-    <div class="container" ng-controller="HomeCtrl">
+    <div class="container">
         @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix">
-            @RenderBody()
-        </section>
+        @RenderBody()
     </div>
     <footer>
         <div class="content-wrapper">
