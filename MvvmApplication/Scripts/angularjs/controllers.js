@@ -17,3 +17,7 @@ controllers.controller("AboutCtrl", ['$scope', function ($scope) {
 controllers.controller("ContactCtrl", ['$scope', function ($scope) {
     $scope.title = 'Hello ContactCtrl';
 }]);
+
+controllers.controller("ThemeCtrl", ['$scope', function ($scope) {
+    $scope.title = 'Hello ThemeCtrl';
+}]);

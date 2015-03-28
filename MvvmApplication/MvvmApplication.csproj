@@ -1043,6 +1043,7 @@
     <Content Include="Templates\contact.html" />
     <Content Include="Templates\about.html" />
     <Content Include="Templates\home.html" />
+    <Content Include="Templates\theme.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

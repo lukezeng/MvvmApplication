@@ -12,8 +12,8 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'ContactCtrl',
             templateUrl: '/Templates/contact.html'
         }).
-        when('/jasmine', {
-            controller: 'jasmineCtrl',
-            templateUrl: '/Jasmine/SpecRunner.html'
+        when('/theme', {
+            controller: 'ThemeCtrl',
+            templateUrl: '/Templates/theme.html'
         });
 });
