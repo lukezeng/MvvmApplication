@@ -23,7 +23,7 @@
                 <a class="navbar-brand" href="#">Bootstrap theme</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul style="float: right" class="nav navbar-nav">
                     <li ng-class="{active:isActive('/')}"><a href="/#/">Home</a></li>
                     <li ng-class="{active:isActive('/about')}"><a href="/#/about">About</a></li>
                     <li ng-class="{active:isActive('/contact')}"><a href="/#/contact">Contact</a></li>
@@ -40,12 +40,9 @@
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
+                    <li ng-class="{active:isActive('/theme')}"><a href="/account/register">Register</a></li>
+                    <li ng-class="{active:isActive('/theme')}"><a href="/account/login">Login</a></li>
                 </ul><!--/.nav-collapse -->
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                </div>
             </div>
         </div>
     </div>
