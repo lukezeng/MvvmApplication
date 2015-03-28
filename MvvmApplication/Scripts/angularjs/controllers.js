@@ -9,3 +9,11 @@ controllers.controller("NavCtrl", ['$scope', "$location", function ($scope, $loc
 controllers.controller("HomeCtrl", ['$scope', function ($scope) {
     $scope.title = 'Hello HomeCtrl';
 }]);
+
+controllers.controller("AboutCtrl", ['$scope', function ($scope) {
+    $scope.title = 'Hello AboutCtrl';
+}]);
+
+controllers.controller("ContactCtrl", ['$scope', function ($scope) {
+    $scope.title = 'Hello ContactCtrl';
+}]);

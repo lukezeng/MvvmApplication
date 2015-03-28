@@ -5,20 +5,12 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/Templates/home.html'
         }).
         when('/about', {
-            controller: 'HomeCtrl',
+            controller: 'AboutCtrl',
             templateUrl: '/Templates/about.html'
         }).
         when('/contact', {
-            controller: 'HomeCtrl',
+            controller: 'ContactCtrl',
             templateUrl: '/Templates/contact.html'
-        }).
-        when('/contactUs', {
-            controller: 'contactUsCtrl',
-            templateUrl: '/Templates/contactUs.html'
-        }).
-        when('/angualrExamples', {
-            controller: 'examplesCtrl',
-            templateUrl: '/Templates/angualrExamples.html'
         }).
         when('/jasmine', {
             controller: 'jasmineCtrl',
