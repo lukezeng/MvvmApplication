@@ -11,10 +11,7 @@ namespace MvvmApplication.Controllers.Apis
         private readonly ICompanyService _companyService;
         public CompanyController()
         {
-            IKernel ninjectKernel = new StandardKernel();
-            ninjectKernel.Bind<ICompanyService>()
-                .To<CompanyService>();
-            _companyService = ninjectKernel.Get<ICompanyService>();
+            _companyService = new CompanyService();
         }
 
         // GET api/company
