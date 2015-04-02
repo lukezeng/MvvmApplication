@@ -15,5 +15,9 @@ app.config(function ($routeProvider, $locationProvider) {
         when('/theme', {
             controller: 'ThemeCtrl',
             templateUrl: '/Templates/theme.html'
+        }).
+        when('/topCompanies', {
+            controller: 'topCompaniesCtrl',
+            templateUrl: '/Templates/topCompanies.html'
         });
 });

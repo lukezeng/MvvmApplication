@@ -18,7 +18,6 @@ namespace MvvmApplication.Controllers
     {
         //
         // GET: /Account/Login
-
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -28,7 +27,6 @@ namespace MvvmApplication.Controllers
 
         //
         // POST: /Account/Login
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -46,7 +44,6 @@ namespace MvvmApplication.Controllers
 
         //
         // POST: /Account/LogOff
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -92,7 +89,6 @@ namespace MvvmApplication.Controllers
 
         //
         // POST: /Account/Disassociate
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Disassociate(string provider, string providerUserId)
@@ -140,7 +136,6 @@ namespace MvvmApplication.Controllers
 
         //
         // POST: /Account/Manage
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Manage(LocalPasswordModel model)
@@ -278,11 +273,8 @@ namespace MvvmApplication.Controllers
 
                         return RedirectToLocal(returnUrl);
                     }
-                    else
-                    {
-                        ModelState.AddModelError("UserName",
-                            "User name already exists. Please enter a different user name.");
-                    }
+                    ModelState.AddModelError("UserName",
+                        "User name already exists. Please enter a different user name.");
                 }
             }
 

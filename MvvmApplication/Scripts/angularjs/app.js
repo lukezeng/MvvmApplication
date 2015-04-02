@@ -1,4 +1,6 @@
 var app = angular.module('app', [
    'ngRoute',
-   'controllers'
+   'ngResource',
+   'controllers',
+   'services'
 ]);
