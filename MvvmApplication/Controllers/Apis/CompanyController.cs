@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Data.SqlClient;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using MvvmApplication.Models;
+using MvvmApplication.Services;
 
-namespace Future.Controllers.api
+namespace MvvmApplication.Controllers.Apis
 {
     public class CompanyController : ApiController
     {
+        private readonly CompanyService _companyService;
+        public CompanyController(CompanyService companyService)
+        {
+            _companyService = companyService;
+        }
+
         // GET api/company
         public IEnumerable<Company> Get()
         {
-            return new List<Company>
-            {
-                new Company
-                {
-                    Name = "Amazon",
-                    Gdp = 25000,
-                    Id = 1,
-                    ImageUrl = "abcd",
-                    Rating = 5
-                }
-            };
+            return _companyService.GetAll();
         }
     }
 }
