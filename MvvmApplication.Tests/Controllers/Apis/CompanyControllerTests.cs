@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Moq;
 using MvvmApplication.Controllers.Apis;
 using MvvmApplication.Models;
@@ -26,7 +25,7 @@ namespace MvvmApplication.Tests.Controllers.Apis
             companyService.Setup(x => x.GetAll()).Returns(_companies);
             var controller = new CompanyController(companyService.Object);
             var allCompanies = controller.Get();
-            Assert.AreEqual(2, allCompanies.Count());
+            Assert.AreEqual(_companies, allCompanies);
             companyService.Verify(x => x.GetAll(), Times.Once);
         }
     }
