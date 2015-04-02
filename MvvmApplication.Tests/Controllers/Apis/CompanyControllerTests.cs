@@ -1,20 +1,34 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Moq;
 using MvvmApplication.Controllers.Apis;
+using MvvmApplication.Models;
 using MvvmApplication.Services;
+using NUnit.Framework;
+using Assert = NUnit.Framework.Assert;
 
 namespace MvvmApplication.Tests.Controllers.Apis
 {
-    [TestClass]
     public class CompanyControllerTests
     {
-        [TestMethod]
+        private readonly List<Company> _companies = new List<Company>();
+
+        [SetUp]
+        public void Setup()
+        {
+            _companies.Add(new Company());
+            _companies.Add(new Company());
+        }
+
+        [Test]
         public void Get()
         {
             var companyService = new Mock<ICompanyService>();
+            companyService.Setup(x => x.GetAll()).Returns(_companies);
             var controller = new CompanyController(companyService.Object);
             var allCompanies = controller.Get();
-            companyService.Verify(x=>x.GetAll(), Times.Once);
+            Assert.AreEqual(1, allCompanies.Count());
+            companyService.Verify(x => x.GetAll(), Times.Once);
         }
     }
 }
