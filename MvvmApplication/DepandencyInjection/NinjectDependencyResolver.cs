@@ -1,36 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
-using MvvmApplication.Services;
+using System.Diagnostics.Contracts;
+using System.Web.Http.Dependencies;
 using Ninject;
+using Ninject.Syntax;
 
 namespace MvvmApplication.DepandencyInjection
 {
-    public class NinjectDependencyResolver
-        : IDependencyResolver
+    public class NinjectDependencyScope : IDependencyScope
     {
-        private readonly IKernel _kernel;
+        private IResolutionRoot _resolver;
 
-        public NinjectDependencyResolver()
+        internal NinjectDependencyScope(IResolutionRoot resolver)
         {
-            _kernel = new StandardKernel();
-            AddBindings();
+            Contract.Assert(resolver != null);
+
+            _resolver = resolver;
         }
 
-        private void AddBindings()
+        public void Dispose()
         {
-            _kernel.Bind<ICompanyService>()
-                .To<CompanyService>();
+            var disposable = _resolver as IDisposable;
+            if (disposable != null)
+                disposable.Dispose();
+
+            _resolver = null;
         }
 
         public object GetService(Type serviceType)
         {
-            return this._kernel.TryGet(serviceType);
+            if (_resolver == null)
+                throw new ObjectDisposedException("this", "This scope has already been disposed");
+
+            return _resolver.TryGet(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            return this._kernel.GetAll(serviceType);
+            if (_resolver == null)
+                throw new ObjectDisposedException("this", "This scope has already been disposed");
+
+            return _resolver.GetAll(serviceType);
+        }
+    }
+
+    public class NinjectDependencyResolver : NinjectDependencyScope, IDependencyResolver
+    {
+        private readonly IKernel _kernel;
+
+        public NinjectDependencyResolver(IKernel kernel)
+            : base(kernel)
+        {
+            _kernel = kernel;
+        }
+
+        public IDependencyScope BeginScope()
+        {
+            return new NinjectDependencyScope(_kernel.BeginBlock());
         }
     }
 }

@@ -2,16 +2,15 @@
 using System.Web.Http;
 using MvvmApplication.Models;
 using MvvmApplication.Services;
-using Ninject;
 
 namespace MvvmApplication.Controllers.Apis
 {
     public class CompanyController : ApiController
     {
         private readonly ICompanyService _companyService;
-        public CompanyController()
+        public CompanyController(ICompanyService companyService)
         {
-            _companyService = new CompanyService();
+            _companyService = companyService;
         }
 
         // GET api/company
