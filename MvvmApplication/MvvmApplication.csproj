@@ -250,7 +250,9 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CompanyRepository.cs" />
     <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="SqlPersistance\CompanySqlPersistence.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Backload\content-types\128\Excel.png" />
@@ -1235,8 +1237,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Repository\" />
-    <Folder Include="SqlPersistance\" />
     <Folder Include="Views\Company\" />
   </ItemGroup>
   <ItemGroup>

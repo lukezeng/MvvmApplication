@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MvvmApplication.Models;
+using MvvmApplication.Repository;
 
 namespace MvvmApplication.Services
 {
@@ -12,19 +13,16 @@ namespace MvvmApplication.Services
     }
     public class CompanyService : ICompanyService
     {
+        private readonly ICompanyRepository _companyRepository;
+
+        public CompanyService(ICompanyRepository companyRepository)
+        {
+            _companyRepository = companyRepository;
+        }
+
         public IEnumerable<Company> GetAll()
         {
-            return new List<Company>
-            {
-                new Company
-                {
-                    Name = "Amazon",
-                    Gdp = 25000,
-                    Id = 1,
-                    ImageUrl = "abcd",
-                    Rating = 5
-                }
-            };
+            return _companyRepository.GetAll();
         }
     }
 }

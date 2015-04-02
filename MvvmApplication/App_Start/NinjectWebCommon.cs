@@ -4,7 +4,9 @@ using System.Web.Http;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using MvvmApplication;
 using MvvmApplication.DepandencyInjection;
+using MvvmApplication.Repository;
 using MvvmApplication.Services;
+using MvvmApplication.SqlPersistance;
 using Ninject;
 using Ninject.Syntax;
 using Ninject.Web.Common;
@@ -69,6 +71,8 @@ namespace MvvmApplication
         private static void RegisterServices(IBindingRoot kernel)
         {
             kernel.Bind<ICompanyService>().To<CompanyService>();
+            kernel.Bind<ICompanyRepository>().To<CompanyRepository>();
+            kernel.Bind<ICompanySqlPersistence>().To<CompanySqlPersistence>();
         }        
     }
 }
