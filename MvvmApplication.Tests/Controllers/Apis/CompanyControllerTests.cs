@@ -5,7 +5,6 @@ using MvvmApplication.Controllers.Apis;
 using MvvmApplication.Models;
 using MvvmApplication.Services;
 using NUnit.Framework;
-using Assert = NUnit.Framework.Assert;
 
 namespace MvvmApplication.Tests.Controllers.Apis
 {
@@ -27,7 +26,7 @@ namespace MvvmApplication.Tests.Controllers.Apis
             companyService.Setup(x => x.GetAll()).Returns(_companies);
             var controller = new CompanyController(companyService.Object);
             var allCompanies = controller.Get();
-            Assert.AreEqual(1, allCompanies.Count());
+            Assert.AreEqual(2, allCompanies.Count());
             companyService.Verify(x => x.GetAll(), Times.Once);
         }
     }

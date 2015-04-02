@@ -1,14 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
+﻿using Moq;
 using MvvmApplication.Controllers;
 using MvvmApplication.Services;
+using NUnit.Framework;
 
 namespace MvvmApplication.Tests.Controllers
 {
-    [TestClass]
     public class HomeControllerTest
     {
-        [TestMethod]
+        [Test]        
         public void Index()
         {
             var companyService = new Mock<ICompanyService>();
