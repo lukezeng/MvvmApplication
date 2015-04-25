@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmApplication", "MvvmApplication\MvvmApplication.csproj", "{FA026F19-844C-4B6F-87D5-639EF1536D3B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmApplication.Tests", "MvvmApplication.Tests\MvvmApplication.Tests.csproj", "{92030284-0823-438A-936F-1A99B65AA926}"
