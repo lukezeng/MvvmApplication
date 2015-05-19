@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MvvmApplication.Models;
-using MvvmApplication.Repository;
+using MvvmApplication.Repositories;
 
 namespace MvvmApplication.Services
 {

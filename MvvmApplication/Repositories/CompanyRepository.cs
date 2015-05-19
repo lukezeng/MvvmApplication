@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using MvvmApplication.Models;
 using MvvmApplication.SqlPersistance;
 
-namespace MvvmApplication.Repository
+namespace MvvmApplication.Repositories
 {
     public interface ICompanyRepository
     {

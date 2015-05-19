@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using MvvmApplication.Models;
-using MvvmApplication.Repository;
+using MvvmApplication.Repositories;
 using MvvmApplication.SqlPersistance;
 using NUnit.Framework;
 

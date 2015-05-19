@@ -4,7 +4,7 @@ using System.Web.Http;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using MvvmApplication;
 using MvvmApplication.DepandencyInjection;
-using MvvmApplication.Repository;
+using MvvmApplication.Repositories;
 using MvvmApplication.Services;
 using MvvmApplication.SqlPersistance;
 using Ninject;
