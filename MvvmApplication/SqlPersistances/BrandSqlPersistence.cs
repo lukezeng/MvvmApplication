@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MvvmApplication.Models;
 
 namespace MvvmApplication.SqlPersistances
@@ -6,45 +7,53 @@ namespace MvvmApplication.SqlPersistances
     public interface IBrandSqlPersistence
     {
         IEnumerable<Brand> GetAll();
+        Brand GetBrand(int id);
     }
 
     public class BrandSqlPersistence : IBrandSqlPersistence
     {
+        private readonly List<Brand> _tmpBrand = new List<Brand>
+        {
+            new Brand()
+            {
+                Id = 1,
+                Name = "Brand A"
+            },
+            new Brand()
+            {
+                Id = 2,
+                Name = "Brand B"
+            },
+            new Brand()
+            {
+                Id = 3,
+                Name = "Brand C"
+            },
+            new Brand()
+            {
+                Id = 4,
+                Name = "Brand D"
+            },
+            new Brand()
+            {
+                Id = 5,
+                Name = "Brand E"
+            },
+            new Brand()
+            {
+                Id = 6,
+                Name = "Brand F"
+            }
+        };
+
         public IEnumerable<Brand> GetAll()
         {
-            return new List<Brand>
-            {
-                new Brand()
-                {
-                    Id = 1,
-                    Name = "Brand A"
-                },                
-                new Brand()
-                {
-                    Id = 2,
-                    Name = "Brand B"
-                },                
-                new Brand()
-                {
-                    Id = 3,
-                    Name = "Brand C"
-                },                
-                new Brand()
-                {
-                    Id = 4,
-                    Name = "Brand D"
-                },                
-                new Brand()
-                {
-                    Id = 5,
-                    Name = "Brand E"
-                },                
-                new Brand()
-                {
-                    Id = 6,
-                    Name = "Brand F"
-                }
-            };
+            return _tmpBrand;
+        }   
+        
+        public Brand GetBrand(int id)
+        {
+            return _tmpBrand.FirstOrDefault(x => x.Id == id);
         }
     }
 }

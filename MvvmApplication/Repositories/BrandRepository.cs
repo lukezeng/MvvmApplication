@@ -22,5 +22,10 @@ namespace MvvmApplication.Repositories
         {
             return _brandSqlPersistence.GetAll();
         }
+
+        public Brand GetBrand(int id)
+        {
+            return _brandSqlPersistence.GetBrand(id);
+        }
     }
 }
