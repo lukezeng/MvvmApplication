@@ -6,6 +6,7 @@ namespace MvvmApplication.Controllers
     public class BrandController : Controller
     {
         private readonly ICompanyService _companyService;
+
         public BrandController(ICompanyService companyService)
         {
             _companyService = companyService;

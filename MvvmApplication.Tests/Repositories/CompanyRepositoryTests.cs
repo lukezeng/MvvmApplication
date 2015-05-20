@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Moq;
 using MvvmApplication.Models;
 using MvvmApplication.Repositories;
@@ -13,8 +9,8 @@ namespace MvvmApplication.Tests.Repositories
 {
     internal class CompanyRepositoryTests
     {
-        private CompanyRepository _self;
         private readonly List<Company> _companies = new List<Company>();
+        private CompanyRepository _self;
 
         [SetUp]
         public void Setup()
@@ -30,7 +26,7 @@ namespace MvvmApplication.Tests.Repositories
             companySqlPersistence.Setup(x => x.GetAll()).Returns(_companies);
             _self = new CompanyRepository(companySqlPersistence.Object);
             var allCompanies = _self.GetAll();
-            companySqlPersistence.Verify(x=>x.GetAll(), Times.Once);
+            companySqlPersistence.Verify(x => x.GetAll(), Times.Once);
             Assert.AreEqual(allCompanies, _companies);
         }
     }

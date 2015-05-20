@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Web.WebPages.OAuth;
-using MvvmApplication.Models;
-
-namespace MvvmApplication
+﻿namespace MvvmApplication
 {
     public static class AuthConfig
     {

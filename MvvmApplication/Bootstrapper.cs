@@ -29,7 +29,7 @@ namespace MvvmApplication
             container.RegisterType<ICompanyRepository, CompanyRepository>();
             container.RegisterType<ICompanySqlPersistence, CompanySqlPersistence>();
 
-            
+
             // e.g. container.RegisterType<ITestService, TestService>();            
 
             return container;

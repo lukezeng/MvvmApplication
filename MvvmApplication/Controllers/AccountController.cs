@@ -4,7 +4,6 @@ using System.Linq;
 using System.Transactions;
 using System.Web.Mvc;
 using System.Web.Security;
-using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using MvvmApplication.Filters;
 using MvvmApplication.Models;
@@ -32,7 +31,7 @@ namespace MvvmApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, model.RememberMe))
             {
                 return RedirectToLocal(returnUrl);
             }
@@ -104,7 +103,7 @@ namespace MvvmApplication.Controllers
                     var scope = new TransactionScope(TransactionScopeOption.Required,
                         new TransactionOptions {IsolationLevel = IsolationLevel.Serializable}))
                 {
-                    bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
+                    var hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
                     if (hasLocalAccount || OAuthWebSecurity.GetAccountsFromUserName(User.Identity.Name).Count > 1)
                     {
                         OAuthWebSecurity.DeleteAccount(provider, providerUserId);
@@ -140,7 +139,7 @@ namespace MvvmApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Manage(LocalPasswordModel model)
         {
-            bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
+            var hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.HasLocalPassword = hasLocalAccount;
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasLocalAccount)
@@ -184,7 +183,7 @@ namespace MvvmApplication.Controllers
                     catch (Exception)
                     {
                         ModelState.AddModelError("",
-                            String.Format(
+                            string.Format(
                                 "Unable to create local account. An account with the name \"{0}\" may already exist.",
                                 User.Identity.Name));
                     }
@@ -210,14 +209,14 @@ namespace MvvmApplication.Controllers
         [AllowAnonymous]
         public ActionResult ExternalLoginCallback(string returnUrl)
         {
-            AuthenticationResult result =
+            var result =
                 OAuthWebSecurity.VerifyAuthentication(Url.Action("ExternalLoginCallback", new {ReturnUrl = returnUrl}));
             if (!result.IsSuccessful)
             {
                 return RedirectToAction("ExternalLoginFailure");
             }
 
-            if (OAuthWebSecurity.Login(result.Provider, result.ProviderUserId, createPersistentCookie: false))
+            if (OAuthWebSecurity.Login(result.Provider, result.ProviderUserId, false))
             {
                 return RedirectToLocal(returnUrl);
             }
@@ -228,15 +227,12 @@ namespace MvvmApplication.Controllers
                 OAuthWebSecurity.CreateOrUpdateAccount(result.Provider, result.ProviderUserId, User.Identity.Name);
                 return RedirectToLocal(returnUrl);
             }
-            else
-            {
-                // User is new, ask for their desired membership name
-                string loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
-                ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
-                ViewBag.ReturnUrl = returnUrl;
-                return View("ExternalLoginConfirmation",
-                    new RegisterExternalLoginModel {UserName = result.UserName, ExternalLoginData = loginData});
-            }
+            // User is new, ask for their desired membership name
+            var loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
+            ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
+            ViewBag.ReturnUrl = returnUrl;
+            return View("ExternalLoginConfirmation",
+                new RegisterExternalLoginModel {UserName = result.UserName, ExternalLoginData = loginData});
         }
 
         //
@@ -269,7 +265,7 @@ namespace MvvmApplication.Controllers
                         db.SaveChanges();
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
-                        OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
+                        OAuthWebSecurity.Login(provider, providerUserId, false);
 
                         return RedirectToLocal(returnUrl);
                     }
@@ -304,7 +300,7 @@ namespace MvvmApplication.Controllers
         {
             var accounts = OAuthWebSecurity.GetAccountsFromUserName(User.Identity.Name);
             var externalLogins = new List<ExternalLogin>();
-            foreach (OAuthAccount account in accounts)
+            foreach (var account in accounts)
             {
                 var clientData = OAuthWebSecurity.GetOAuthClientData(account.Provider);
 
@@ -312,7 +308,7 @@ namespace MvvmApplication.Controllers
                 {
                     Provider = account.Provider,
                     ProviderDisplayName = clientData.DisplayName,
-                    ProviderUserId = account.ProviderUserId,
+                    ProviderUserId = account.ProviderUserId
                 });
             }
 
@@ -329,17 +325,14 @@ namespace MvvmApplication.Controllers
             {
                 return Redirect(returnUrl);
             }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            return RedirectToAction("Index", "Home");
         }
 
         public enum ManageMessageId
         {
             ChangePasswordSuccess,
             SetPasswordSuccess,
-            RemoveLoginSuccess,
+            RemoveLoginSuccess
         }
 
         internal class ExternalLoginResult : ActionResult
