@@ -1,12 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace MvvmApplication.Tests.SqlPersistences
 {
     public class CompanySqlpersistenceTests
     {
-        [Test] 
+        [Test]
         public void Getll()
         {
         }

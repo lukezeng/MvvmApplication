@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MvvmApplication.Models
+﻿namespace MvvmApplication.Models
 {
     public class Company
     {
