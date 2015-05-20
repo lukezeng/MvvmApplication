@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MvvmApplication.Models;
-using MvvmApplication.SqlPersistance;
+using MvvmApplication.SqlPersistances;
 
 namespace MvvmApplication.Repositories
 {

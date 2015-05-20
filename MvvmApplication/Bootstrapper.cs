@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using MvvmApplication.Repositories;
 using MvvmApplication.Services;
-using MvvmApplication.SqlPersistance;
+using MvvmApplication.SqlPersistances;
 using Unity.Mvc3;
 
 namespace MvvmApplication
@@ -25,12 +25,14 @@ namespace MvvmApplication
             // register all your components with the container here
             // it is NOT necessary to register your controllers
 
+            // e.g. container.RegisterType<ITestService, TestService>();            
+
             container.RegisterType<ICompanyService, CompanyService>();
             container.RegisterType<ICompanyRepository, CompanyRepository>();
             container.RegisterType<ICompanySqlPersistence, CompanySqlPersistence>();
-
-
-            // e.g. container.RegisterType<ITestService, TestService>();            
+            container.RegisterType<IBrandService, BrandService>();
+            container.RegisterType<IBrandRepository, BrandRepository>();
+            container.RegisterType<IBrandSqlPersistence, BrandSqlPersistence>();
 
             return container;
         }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MvvmApplication.Models;
 
-namespace MvvmApplication.SqlPersistance
+namespace MvvmApplication.SqlPersistances
 {
     public interface ICompanySqlPersistence
     {

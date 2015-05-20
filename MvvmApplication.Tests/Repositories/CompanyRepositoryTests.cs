@@ -2,7 +2,7 @@
 using Moq;
 using MvvmApplication.Models;
 using MvvmApplication.Repositories;
-using MvvmApplication.SqlPersistance;
+using MvvmApplication.SqlPersistances;
 using NUnit.Framework;
 
 namespace MvvmApplication.Tests.Repositories
