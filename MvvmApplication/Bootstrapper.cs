@@ -43,11 +43,6 @@ namespace MvvmApplication
             container.RegisterType<IRelationRepository, RelationRepository>();
             container.RegisterType<IRelationSqlPersistence, RelationSqlPersistence>();
 
-            //Count
-            container.RegisterType<ICountService, CountService>();
-            container.RegisterType<ICountRepository, CountRepository>();
-            container.RegisterType<ICountSqlPersistence, CountSqlPersistence>();
-
             //Company example
             container.RegisterType<ICompanyService, CompanyService>();
             container.RegisterType<ICompanyRepository, CompanyRepository>();

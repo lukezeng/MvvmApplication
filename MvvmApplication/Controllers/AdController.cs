@@ -15,13 +15,11 @@ namespace MvvmApplication.Controllers
         private readonly IUserService _userService;
         private readonly IBrandService _brandService;
         private readonly IRelationService _relationService;
-        private readonly ICountService _countService;
 
-        public AdController(IUserService userService, IBrandService brandService, IRelationService relationService, ICountService countService)
+        public AdController(IUserService userService, IBrandService brandService, IRelationService relationService)
         {
             _userService = userService;
             _brandService = brandService;
-            _countService = countService;
             _relationService = relationService;
         }
 
@@ -29,11 +27,7 @@ namespace MvvmApplication.Controllers
         public ActionResult Index(int id)
         {
             var token = Request.QueryString["token"];
-            if (token != null)
-            {
-                _countService.Add(token);
-            }
-            //生成viewmodel给index页面使用
+            //model给index页面使用
             var adModel = new AdModel(_userService, _brandService, _relationService, id);
             ViewBag.Title = token + adModel.Brand.Name + "此处应有公司名字";
             return View(adModel);
