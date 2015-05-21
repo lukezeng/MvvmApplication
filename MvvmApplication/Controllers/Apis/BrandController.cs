@@ -30,6 +30,8 @@ namespace MvvmApplication.Controllers.Apis
             return _brandService.GetBrand(id);
         }
 
+        //this function is not wokring
+        //need to parse json info
         public HttpResponseMessage Post([FromBody] Brand brand)
         {
             try
