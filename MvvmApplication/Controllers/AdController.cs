@@ -12,11 +12,13 @@ namespace MvvmApplication.Controllers
 {
     public class AdController : Controller
     {
+        private readonly IUserService _userService;
         private readonly IBrandService _brandService;
         private readonly ICountService _countService;
 
-        public AdController(IBrandService brandService, ICountService countService)
+        public AdController(IUserService userService, IBrandService brandService, ICountService countService)
         {
+            _userService = userService;
             _brandService = brandService;
             _countService = countService;
         }
@@ -30,7 +32,7 @@ namespace MvvmApplication.Controllers
                 _countService.Add(token);
             }
             //生成viewmodel给index页面使用
-            var adModel = new AdModel(_brandService, id);
+            var adModel = new AdModel(_userService, _brandService, id);
             ViewBag.Title = token + adModel.Brand.Name + "此处应有公司名字";
             return View(adModel);
         }
@@ -39,8 +41,10 @@ namespace MvvmApplication.Controllers
     public class AdModel
     {
         public Brand Brand;
-        public AdModel(IBrandService brandService, int id)
+        public User User;
+        public AdModel(IUserService userService, IBrandService brandService, int id)
         {
+            User = userService.GetUser(1);
             Brand = brandService.GetBrand(id);
         }
     }

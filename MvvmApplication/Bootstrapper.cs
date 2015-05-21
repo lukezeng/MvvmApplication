@@ -27,17 +27,26 @@ namespace MvvmApplication
 
             // e.g. container.RegisterType<ITestService, TestService>();            
 
-            container.RegisterType<ICompanyService, CompanyService>();
-            container.RegisterType<ICompanyRepository, CompanyRepository>();
-            container.RegisterType<ICompanySqlPersistence, CompanySqlPersistence>();
 
+            //User
+            container.RegisterType<IUserService, UserService>();
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IUserSqlPersistence, UserSqlPersistence>();
+
+            //Brand
             container.RegisterType<IBrandService, BrandService>();
             container.RegisterType<IBrandRepository, BrandRepository>();
             container.RegisterType<IBrandSqlPersistence, BrandSqlPersistence>();
 
+            //Count
             container.RegisterType<ICountService, CountService>();
             container.RegisterType<ICountRepository, CountRepository>();
             container.RegisterType<ICountSqlPersistence, CountSqlPersistence>();
+
+            //Company example
+            container.RegisterType<ICompanyService, CompanyService>();
+            container.RegisterType<ICompanyRepository, CompanyRepository>();
+            container.RegisterType<ICompanySqlPersistence, CompanySqlPersistence>();
 
             return container;
         }

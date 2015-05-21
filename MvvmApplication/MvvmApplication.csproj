@@ -242,16 +242,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Relation.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\CountRepository.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CompanyRepository.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\CountService.cs" />
     <Compile Include="Services\BrandService.cs" />
     <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="SqlPersistances\RelationSqlPersistence.cs" />
     <Compile Include="SqlPersistances\UserSqlPersistence.cs" />
     <Compile Include="SqlPersistances\CountSqlPersistence.cs" />
     <Compile Include="SqlPersistances\BrandSqlPersistence.cs" />

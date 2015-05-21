@@ -17,37 +17,37 @@ namespace MvvmApplication.SqlPersistances
             new User()
             {
                 Id = 0,
-                Name = "全民代言"
+                Name = "曾古"
             },
             new User()
             {
                 Id = 1,
-                Name = "Brand A"
+                Name = "User A"
             },
             new User()
             {
                 Id = 2,
-                Name = "Brand B"
+                Name = "User B"
             },
             new User()
             {
                 Id = 3,
-                Name = "Brand C"
+                Name = "User C"
             },
             new User()
             {
                 Id = 4,
-                Name = "Brand D"
+                Name = "User D"
             },
             new User()
             {
                 Id = 5,
-                Name = "Brand E"
+                Name = "User E"
             },
             new User()
             {
                 Id = 6,
-                Name = "Brand F"
+                Name = "User F"
             }
         };
 
