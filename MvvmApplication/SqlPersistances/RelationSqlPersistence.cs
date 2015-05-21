@@ -24,14 +24,14 @@ namespace MvvmApplication.SqlPersistances
             new Relation()
             {
                 Id = 1,
-                UserId = 1,
+                UserId = 2,
                 BrandId = 2
             },
             new Relation()
             {
                 Id = 2,
-                UserId = 2,
-                BrandId = 1
+                UserId = 3,
+                BrandId = 3
             }
         };
 

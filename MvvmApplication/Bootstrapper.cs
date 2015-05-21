@@ -38,6 +38,11 @@ namespace MvvmApplication
             container.RegisterType<IBrandRepository, BrandRepository>();
             container.RegisterType<IBrandSqlPersistence, BrandSqlPersistence>();
 
+            //Relation
+            container.RegisterType<IRelationService, RelationService>();
+            container.RegisterType<IRelationRepository, RelationRepository>();
+            container.RegisterType<IRelationSqlPersistence, RelationSqlPersistence>();
+
             //Count
             container.RegisterType<ICountService, CountService>();
             container.RegisterType<ICountRepository, CountRepository>();

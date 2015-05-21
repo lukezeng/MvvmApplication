@@ -8,10 +8,5 @@ namespace MvvmApplication.Models
         public int UserId { get; set; }
         public int BrandId { get; set; }
         public int ClickCount { get; set; }
-
-        public Relation()
-        {
-            
-        }
     }
 }
