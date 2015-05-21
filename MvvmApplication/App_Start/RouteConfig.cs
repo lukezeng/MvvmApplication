@@ -9,6 +9,10 @@ namespace MvvmApplication
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Ad", "{controller}/{id}",
+                new {controller = "Ad", action = "Index", id = 1}
+                );
+
             routes.MapRoute("Default", "{controller}/{action}/{id}",
                 new {controller = "Home", action = "Index", id = UrlParameter.Optional}
                 );

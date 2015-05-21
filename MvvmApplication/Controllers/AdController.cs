@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace MvvmApplication.Controllers
 {
-    public class AppController : Controller
+    public class AdController : Controller
     {
         // GET: App
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            ViewBag.Title = "Passed In App Title";
+            ViewBag.Title = id + "此处应有公司名字";
             return View();
         }
     }
