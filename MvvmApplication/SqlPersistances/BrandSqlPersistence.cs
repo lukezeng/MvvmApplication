@@ -14,37 +14,37 @@ namespace MvvmApplication.SqlPersistances
     {
         private readonly List<Brand> _tmpBrand = new List<Brand>
         {
-            new Brand()
+            new Brand
             {
                 Id = 0,
                 Name = "全民代言"
             },
-            new Brand()
+            new Brand
             {
                 Id = 1,
                 Name = "Brand A"
             },
-            new Brand()
+            new Brand
             {
                 Id = 2,
                 Name = "Brand B"
             },
-            new Brand()
+            new Brand
             {
                 Id = 3,
                 Name = "Brand C"
             },
-            new Brand()
+            new Brand
             {
                 Id = 4,
                 Name = "Brand D"
             },
-            new Brand()
+            new Brand
             {
                 Id = 5,
                 Name = "Brand E"
             },
-            new Brand()
+            new Brand
             {
                 Id = 6,
                 Name = "Brand F"
@@ -54,8 +54,8 @@ namespace MvvmApplication.SqlPersistances
         public IEnumerable<Brand> GetAll()
         {
             return _tmpBrand;
-        }   
-        
+        }
+
         public Brand GetBrand(int id)
         {
             var brand = _tmpBrand.FirstOrDefault(x => x.Id == id);

@@ -14,20 +14,19 @@ namespace MvvmApplication.SqlPersistances
     {
         private readonly List<Relation> _tmpRelation = new List<Relation>
         {
-            new Relation()
+            new Relation
             {
                 Id = 0,
                 UserId = 1,
                 BrandId = 1
-                
             },
-            new Relation()
+            new Relation
             {
                 Id = 1,
                 UserId = 2,
                 BrandId = 2
             },
-            new Relation()
+            new Relation
             {
                 Id = 2,
                 UserId = 3,

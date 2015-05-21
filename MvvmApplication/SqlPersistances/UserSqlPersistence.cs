@@ -14,37 +14,37 @@ namespace MvvmApplication.SqlPersistances
     {
         private readonly List<User> _tmpUser = new List<User>
         {
-            new User()
+            new User
             {
                 Id = 0,
                 Name = "曾古"
             },
-            new User()
+            new User
             {
                 Id = 1,
                 Name = "User A"
             },
-            new User()
+            new User
             {
                 Id = 2,
                 Name = "User B"
             },
-            new User()
+            new User
             {
                 Id = 3,
                 Name = "User C"
             },
-            new User()
+            new User
             {
                 Id = 4,
                 Name = "User D"
             },
-            new User()
+            new User
             {
                 Id = 5,
                 Name = "User E"
             },
-            new User()
+            new User
             {
                 Id = 6,
                 Name = "User F"
