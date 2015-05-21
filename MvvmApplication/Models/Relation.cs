@@ -7,6 +7,6 @@ namespace MvvmApplication.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public int BrandId { get; set; }
-        public int ClickCount { get; set; }
+        public int VisitCount { get; set; }
     }
 }

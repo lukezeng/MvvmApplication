@@ -38,9 +38,11 @@ namespace MvvmApplication.Controllers
     {
         public User User;
         public Brand Brand;
+        public int VisitCount;
         public AdModel(IUserService userService, IBrandService brandService,IRelationService relationService, int id)
         {
             var relation = relationService.GetRelation(id);
+            VisitCount = relation.VisitCount;
             User = userService.GetUser(relation.UserId);
             Brand = brandService.GetBrand(relation.BrandId);
         }
