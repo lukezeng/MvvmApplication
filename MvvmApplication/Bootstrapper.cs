@@ -30,9 +30,14 @@ namespace MvvmApplication
             container.RegisterType<ICompanyService, CompanyService>();
             container.RegisterType<ICompanyRepository, CompanyRepository>();
             container.RegisterType<ICompanySqlPersistence, CompanySqlPersistence>();
+
             container.RegisterType<IBrandService, BrandService>();
             container.RegisterType<IBrandRepository, BrandRepository>();
             container.RegisterType<IBrandSqlPersistence, BrandSqlPersistence>();
+
+            container.RegisterType<ICountService, CountService>();
+            container.RegisterType<ICountRepository, CountRepository>();
+            container.RegisterType<ICountSqlPersistence, CountSqlPersistence>();
 
             return container;
         }

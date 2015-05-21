@@ -4,62 +4,62 @@ using MvvmApplication.Models;
 
 namespace MvvmApplication.SqlPersistances
 {
-    public interface IBrandSqlPersistence
+    public interface IUserSqlPersistence
     {
-        IEnumerable<Brand> GetAll();
-        Brand GetBrand(int id);
+        IEnumerable<User> GetAll();
+        User GetUser(int id);
     }
 
-    public class BrandSqlPersistence : IBrandSqlPersistence
+    public class UserSqlPersistence : IUserSqlPersistence
     {
-        private readonly List<Brand> _tmpBrand = new List<Brand>
+        private readonly List<User> _tmpUser = new List<User>
         {
-            new Brand()
+            new User()
             {
                 Id = 0,
                 Name = "全民代言"
             },
-            new Brand()
+            new User()
             {
                 Id = 1,
                 Name = "Brand A"
             },
-            new Brand()
+            new User()
             {
                 Id = 2,
                 Name = "Brand B"
             },
-            new Brand()
+            new User()
             {
                 Id = 3,
                 Name = "Brand C"
             },
-            new Brand()
+            new User()
             {
                 Id = 4,
                 Name = "Brand D"
             },
-            new Brand()
+            new User()
             {
                 Id = 5,
                 Name = "Brand E"
             },
-            new Brand()
+            new User()
             {
                 Id = 6,
                 Name = "Brand F"
             }
         };
 
-        public IEnumerable<Brand> GetAll()
+        public IEnumerable<User> GetAll()
         {
-            return _tmpBrand;
-        }   
-        
-        public Brand GetBrand(int id)
+            return _tmpUser;
+        }
+
+        public User GetUser(int id)
         {
-            var brand = _tmpBrand.FirstOrDefault(x => x.Id == id);
-            return brand ?? _tmpBrand.FirstOrDefault(x => x.Id == 0);
+            var user = _tmpUser.FirstOrDefault(x => x.Id == id);
+            return user ?? _tmpUser.FirstOrDefault(x => x.Id == 0);
         }
     }
 }
