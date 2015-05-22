@@ -251,8 +251,8 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CompanyRepository.cs" />
-    <Compile Include="Services\UserService - Copy.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\RelationService.cs" />
     <Compile Include="Services\BrandService.cs" />
     <Compile Include="Services\CompanyService.cs" />
     <Compile Include="SqlPersistances\RelationSqlPersistence.cs" />

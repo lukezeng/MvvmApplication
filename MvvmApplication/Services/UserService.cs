@@ -4,29 +4,29 @@ using MvvmApplication.Repositories;
 
 namespace MvvmApplication.Services
 {
-    public interface IRelationService
+    public interface IUserService
     {
-        IEnumerable<Relation> GetAll();
-        Relation GetRelation(int id);
+        IEnumerable<User> GetAll();
+        User GetUser(int id);
     }
 
-    public class RelationService : IRelationService
+    public class UserService : IUserService
     {
-        private readonly RelationRepository _relationRepository;
+        private readonly UserRepository _userRepository;
 
-        public RelationService(RelationRepository relationRepository)
+        public UserService(UserRepository userRepository)
         {
-            _relationRepository = relationRepository;
+            _userRepository = userRepository;
         }
 
-        public IEnumerable<Relation> GetAll()
+        public IEnumerable<User> GetAll()
         {
-            return _relationRepository.GetAll();
+            return _userRepository.GetAll();
         }
 
-        public Relation GetRelation(int id)
+        public User GetUser(int id)
         {
-            return _relationRepository.GetRelation(id);
+            return _userRepository.GetUser(id);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace MvvmApplication.Repositories
     {
         IEnumerable<Relation> GetAll();
         Relation GetRelation(int id);
+        void AddVisitCount(int id);
     }
 
     public class RelationRepository : IRelationRepository
@@ -27,6 +28,11 @@ namespace MvvmApplication.Repositories
         public Relation GetRelation(int id)
         {
             return _relationSqlPersistence.GetRelation(id);
+        }
+
+        public void AddVisitCount(int id)
+        {
+            _relationSqlPersistence.AddVisitCount(id);
         }
     }
 }
