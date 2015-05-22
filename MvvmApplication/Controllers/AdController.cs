@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using MvvmApplication.Models;
 using MvvmApplication.Services;
 
@@ -12,9 +6,9 @@ namespace MvvmApplication.Controllers
 {
     public class AdController : Controller
     {
-        private readonly IUserService _userService;
         private readonly IBrandService _brandService;
         private readonly IRelationService _relationService;
+        private readonly IUserService _userService;
 
         public AdController(IUserService userService, IBrandService brandService, IRelationService relationService)
         {
@@ -36,10 +30,11 @@ namespace MvvmApplication.Controllers
 
     public class AdModel
     {
-        public User User;
         public Brand Brand;
+        public User User;
         public int VisitCount;
-        public AdModel(IUserService userService, IBrandService brandService,IRelationService relationService, int id)
+
+        public AdModel(IUserService userService, IBrandService brandService, IRelationService relationService, int id)
         {
             var relation = relationService.GetRelation(id);
             VisitCount = relation.VisitCount;

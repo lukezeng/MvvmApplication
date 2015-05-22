@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
 using MvvmApplication.Models;
 using MvvmApplication.Services;
 
@@ -36,7 +35,8 @@ namespace MvvmApplication.Controllers.Apis
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.Accepted,"Trying to Add a brand into db with the following info: " + brand.Name);
+                return Request.CreateResponse(HttpStatusCode.Accepted,
+                    "Trying to Add a brand into db with the following info: " + brand.Name);
             }
             catch (Exception ex)
             {

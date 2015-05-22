@@ -1,6 +1,4 @@
-﻿using MvvmApplication.Services;
-
-namespace MvvmApplication.Models
+﻿namespace MvvmApplication.Models
 {
     public class Relation
     {

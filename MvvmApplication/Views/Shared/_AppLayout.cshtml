@@ -10,21 +10,21 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body class="container">
-    <div>
-        @RenderSection("featured", false)
-        @RenderBody()
-    </div>
-    <div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="text-center">
-                &copy; @DateTime.Now.Year - 全民代言
-            </div>
+<div>
+    @RenderSection("featured", false)
+    @RenderBody()
+</div>
+<div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="text-center">
+            &copy; @DateTime.Now.Year - 全民代言
         </div>
     </div>
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/angular")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", false)
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/angular")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", false)
 </body>
 </html>

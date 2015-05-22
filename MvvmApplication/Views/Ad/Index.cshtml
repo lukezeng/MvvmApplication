@@ -1,20 +1,38 @@
 ﻿@model MvvmApplication.Controllers.AdModel
 
+
 @{
     Layout = "~/Views/Shared/_AppLayout.cshtml";
 }
 
-<div class="col-md-6">
-    <div>User Id: @Model.User.Id</div>
-    <div>User Name: @Model.User.Name</div>
-    <div>Visit Count: @Model.VisitCount</div>
-    <div>brand Id: @Model.Brand.Id</div>
-    <div>brand Name: @Model.Brand.Name</div>
-</div>
-<div class="col-md-6">
-    <div class="btn btn-success">加入全民代言</div>
-    <div>公司简介: 阿斯doi阿松i多家阿松地爱死多家, 阿松东i家啊 ,爱死的阿松地阿松地爱死.</div>
-    <div>IPhone App 下载: 此处应该有配图 & 连接</div>
-    <div>Andriod App 下载:此处应该有配图 & 连接</div>
+
+<div class="col-lg-6">
+    <div>
+        用户信息
+        <div>用户Id: @Model.User.Id</div>
+
+        <div>用户名: @Model.User.Name</div>
+
+        <div>访问量: @Model.VisitCount</div>
+    </div>
+
+    <div>
+        品牌/产品信息
+        <div>品牌Id: @Model.Brand.Id</div>
+
+        <div>品牌名称: @Model.Brand.Name</div>
+    </div>
 </div>
 
+<div class="col-lg-6">
+    <div class="row col-lg-12">
+        <div class="btn btn-success">加入全民代言, 体现自身价值</div>
+        <div>
+            公司简介: 全名代言是个xxx的软件, 又xxx公司开发, 致力于xxx, 在帮助广告xxx的时候同时xxx.
+        </div>
+    </div>
+    <div class="row col-lg-6">IPhone App 下载: 此处应该有配图 & 连接</div>
+
+    <div class="row col-lg-6">Andriod App 下载:此处应该有配图 & 连接</div>
+
+</div>
