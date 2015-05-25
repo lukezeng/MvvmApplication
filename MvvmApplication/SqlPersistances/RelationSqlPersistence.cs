@@ -20,21 +20,24 @@ namespace MvvmApplication.SqlPersistances
                 Id = 0,
                 UserId = 1,
                 BrandId = 1,
-                VisitCount = 1000
+                VisitCount = 1000,
+                Reason = "我是用户a 我愿意推荐abc"
             },
             new Relation
             {
                 Id = 1,
                 UserId = 2,
                 BrandId = 2,
-                VisitCount = 2000
+                VisitCount = 2000,
+                Reason = "我是用户b 我愿意推荐abc"
             },
             new Relation
             {
                 Id = 2,
                 UserId = 3,
                 BrandId = 3,
-                VisitCount = 3000
+                VisitCount = 3000,
+                Reason = "我是用户c 我愿意推荐abc"
             }
         };
 

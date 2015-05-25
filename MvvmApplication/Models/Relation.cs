@@ -6,5 +6,6 @@
         public int UserId { get; set; }
         public int BrandId { get; set; }
         public int VisitCount { get; set; }
+        public string Reason { get; set; } 
     }
 }

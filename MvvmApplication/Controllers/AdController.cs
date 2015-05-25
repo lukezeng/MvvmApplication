@@ -18,11 +18,11 @@ namespace MvvmApplication.Controllers
         }
 
         // GET: App
-        public ActionResult Index(int id)
+        public ActionResult Index(int relationId)
         {
             var token = Request.QueryString["token"];
             //model给index页面使用
-            var adModel = new AdModel(_userService, _brandService, _relationService, id);
+            var adModel = new AdModel(_userService, _brandService, _relationService, relationId);
             ViewBag.Title = token + adModel.Brand.Name + "此处应有公司名字";
             return View(adModel);
         }
@@ -32,14 +32,13 @@ namespace MvvmApplication.Controllers
     {
         public Brand Brand;
         public User User;
-        public int VisitCount;
+        public Relation Relation;
 
         public AdModel(IUserService userService, IBrandService brandService, IRelationService relationService, int id)
         {
-            var relation = relationService.GetRelation(id);
-            VisitCount = relation.VisitCount;
-            User = userService.GetUser(relation.UserId);
-            Brand = brandService.GetBrand(relation.BrandId);
+            Relation = relationService.GetRelation(id);
+            User = userService.GetUser(Relation.UserId);
+            Brand = brandService.GetBrand(Relation.BrandId);
         }
     }
 }
