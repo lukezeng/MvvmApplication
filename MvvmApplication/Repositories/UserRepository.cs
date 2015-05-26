@@ -7,7 +7,7 @@ namespace MvvmApplication.Repositories
     public interface IUserRepository
     {
         IEnumerable<User> GetAll();
-        User GetUser(int id);
+        User GetUser(long id);
     }
 
     public class UserRepository : IUserRepository
@@ -24,7 +24,7 @@ namespace MvvmApplication.Repositories
             return _userSqlPersistence.GetAll();
         }
 
-        public User GetUser(int id)
+        public User GetUser(long id)
         {
             return _userSqlPersistence.GetUser(id);
         }

@@ -7,7 +7,7 @@ namespace MvvmApplication.SqlPersistances
     public interface IUserSqlPersistence
     {
         IEnumerable<User> GetAll();
-        User GetUser(int id);
+        User GetUser(long id);
     }
 
     public class UserSqlPersistence : IUserSqlPersistence
@@ -56,7 +56,7 @@ namespace MvvmApplication.SqlPersistances
             return _tmpUser;
         }
 
-        public User GetUser(int id)
+        public User GetUser(long id)
         {
             var user = _tmpUser.FirstOrDefault(x => x.Id == id);
             return user ?? _tmpUser.FirstOrDefault(x => x.Id == 0);

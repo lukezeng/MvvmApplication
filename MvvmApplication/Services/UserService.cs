@@ -8,7 +8,7 @@ namespace MvvmApplication.Services
     public interface IUserService
     {
         IEnumerable<User> GetAll();
-        User GetUser(int id);
+        User GetUser(long id);
     }
 
     public class UserService : IUserService
@@ -27,7 +27,7 @@ namespace MvvmApplication.Services
             return _userRepository.GetAll();
         }
 
-        public User GetUser(int id)
+        public User GetUser(long id)
         {
             return _userRepository.GetUser(id);
         }
