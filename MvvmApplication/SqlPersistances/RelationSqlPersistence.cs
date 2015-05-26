@@ -9,6 +9,7 @@ namespace MvvmApplication.SqlPersistances
         IEnumerable<Relation> GetAll();
         Relation GetRelation(int id);
         IEnumerable<Relation> GetRelationsByUserId(int userId);
+        IEnumerable<Relation> GetRelationsByBrandId(int brandId);
         void AddVisitCount(int id);
     }
 
@@ -44,17 +45,26 @@ namespace MvvmApplication.SqlPersistances
 
         IEnumerable<Relation> IRelationSqlPersistence.GetAll()
         {
+            //select * from dbo.relation
             return _tmpRelation;
         }
 
         public Relation GetRelation(int id)
         {
+            //select * from dbo.relation where id = id
             return _tmpRelation.FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<Relation> GetRelationsByUserId(int userId)
         {
+            //select * from dbo.relation where userId = userId
             return _tmpRelation.Where(x => x.UserId == userId);
+        }
+
+        public IEnumerable<Relation> GetRelationsByBrandId(int brandId)
+        {
+            //select * from dbo.relation where brandId = brandId
+            return _tmpRelation.Where(x => x.BrandId == brandId);
         }
 
         public void AddVisitCount(int id)

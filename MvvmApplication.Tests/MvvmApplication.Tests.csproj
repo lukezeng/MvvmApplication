@@ -165,6 +165,7 @@
     <Compile Include="Repositories\CompanyRepositoryTests.cs" />
     <Compile Include="Services\BrandServiceTests.cs" />
     <Compile Include="SqlPersistences\CompanySqlpersistenceTests.cs" />
+    <Compile Include="TestConstant.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

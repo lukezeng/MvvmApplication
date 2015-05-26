@@ -10,8 +10,8 @@ namespace MvvmApplication.Tests.Services
 {
     internal class BrandServiceTests
     {
-        private readonly List<Brand> _brands = new List<Brand>();
-        private List<Relation> _relations = new List<Relation>();
+        private readonly List<Brand> _brands = TestConstant.Brands;
+        private readonly List<Relation> _relations = TestConstant.Relations;
         private BrandService _brandService;
 
         private Mock<IBrandRepository> _brandRepository;
@@ -20,45 +20,6 @@ namespace MvvmApplication.Tests.Services
         [SetUp]
         public void Setup()
         {
-            for (var i = 0; i < 10; i++)
-            {
-                _brands.Add(new Brand
-                {
-                    Id = i,
-                    Name = "Test Brand "+ i
-                });
-            }
-            _relations = new List<Relation>
-            {
-                new Relation
-                {
-
-                    Id = 1,
-                    UserId = 1,
-                    BrandId = 1
-                },
-                new Relation
-                {
-                    Id = 2,
-                    UserId = 1,
-                    BrandId = 2
-                },
-                new Relation
-                {
-                    Id = 3,
-                    UserId = 1,
-                    BrandId = 3
-                },
-                new Relation
-                {
-
-                    Id = 4,
-                    UserId = 2,
-                    BrandId = 4
-                },
-
-            };
-
             _brandRepository = new Mock<IBrandRepository>();
             _relationRepository = new Mock<IRelationRepository>();
 
@@ -73,6 +34,17 @@ namespace MvvmApplication.Tests.Services
             var allBrands = _brandService.GetAll();
             _brandRepository.Verify(x => x.GetAll(), Times.Once);
             Assert.AreEqual(allBrands, _brands);
+        }
+        
+        [Test]
+        public void GetBrand()
+        {
+            const int brandId = 10001; 
+            var result = _brands.First();
+            _brandRepository.Setup(x => x.GetBrand(brandId)).Returns(result);
+            var brand = _brandService.GetBrand(brandId);
+            _brandRepository.Verify(x => x.GetBrand(brandId), Times.Once);
+            Assert.AreEqual(result, brand);
         }
 
         [Test]
