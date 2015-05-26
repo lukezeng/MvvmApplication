@@ -69,7 +69,6 @@ namespace MvvmApplication.SqlPersistances
 
         public void AddVisitCount(long id)
         {
-            
         }
     }
 }

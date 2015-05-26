@@ -38,6 +38,6 @@ namespace MvvmApplication.Services
             var brands = GetAll();
             var relations = _relationRepository.GetRelationsByUserId(userId);
             return relations.Select(relation => brands.FirstOrDefault(x => x.Id == relation.BrandId));
-        } 
+        }
     }
 }

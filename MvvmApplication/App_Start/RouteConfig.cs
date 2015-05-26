@@ -10,7 +10,7 @@ namespace MvvmApplication
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute("Ad", "{controller}/{relationId}",
-                new { controller = "Ad", action = "Index", relationId = 1 }
+                new {controller = "Ad", action = "Index", relationId = 1}
                 );
 
             routes.MapRoute("Default", "{controller}/{action}/{id}",

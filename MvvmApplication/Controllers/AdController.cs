@@ -31,8 +31,8 @@ namespace MvvmApplication.Controllers
     public class AdModel
     {
         public Brand Brand;
-        public User User;
         public Relation Relation;
+        public User User;
 
         public AdModel(IUserService userService, IBrandService brandService, IRelationService relationService, int id)
         {

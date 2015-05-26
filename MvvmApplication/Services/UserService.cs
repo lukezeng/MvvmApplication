@@ -14,8 +14,8 @@ namespace MvvmApplication.Services
 
     public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepository;
         private readonly IRelationRepository _relationRepository;
+        private readonly IUserRepository _userRepository;
 
         public UserService(IUserRepository userRepository, IRelationRepository relationRepository)
         {
@@ -38,6 +38,6 @@ namespace MvvmApplication.Services
             var users = GetAll();
             var relations = _relationRepository.GetRelationsByBrandId(brandId);
             return relations.Select(relation => users.FirstOrDefault(x => x.Id == relation.UserId));
-        } 
+        }
     }
 }

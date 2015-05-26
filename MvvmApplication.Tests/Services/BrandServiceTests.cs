@@ -12,9 +12,8 @@ namespace MvvmApplication.Tests.Services
     {
         private readonly List<Brand> _brands = TestConstant.Brands;
         private readonly List<Relation> _relations = TestConstant.Relations;
-        private BrandService _brandService;
-
         private Mock<IBrandRepository> _brandRepository;
+        private BrandService _brandService;
         private Mock<IRelationRepository> _relationRepository;
 
         [SetUp]

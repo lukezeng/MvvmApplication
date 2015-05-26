@@ -10,12 +10,11 @@ namespace MvvmApplication.Tests.Services
 {
     internal class UserServiceTests
     {
-        private readonly List<User> _users = TestConstant.Users;
         private readonly List<Relation> _relations = TestConstant.Relations;
-        private UserService _userService;
-
-        private Mock<IUserRepository> _userRepository;
+        private readonly List<User> _users = TestConstant.Users;
         private Mock<IRelationRepository> _relationRepository;
+        private Mock<IUserRepository> _userRepository;
+        private UserService _userService;
 
         [SetUp]
         public void Setup()
@@ -45,7 +44,7 @@ namespace MvvmApplication.Tests.Services
             _userRepository.Setup(x => x.GetUser(1)).Returns(result);
 
             var user = _userService.GetUser(1);
-            
+
             _userRepository.Verify(x => x.GetUser(1), Times.Once);
             Assert.AreEqual(result, user);
         }
