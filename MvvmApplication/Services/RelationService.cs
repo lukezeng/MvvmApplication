@@ -7,8 +7,8 @@ namespace MvvmApplication.Services
     public interface IRelationService
     {
         IEnumerable<Relation> GetAll();
-        Relation GetRelation(int id);
-        void AddVisitCount(int id);
+        Relation GetRelation(long id);
+        void AddVisitCount(long id);
     }
 
     public class RelationService : IRelationService
@@ -25,12 +25,12 @@ namespace MvvmApplication.Services
             return _relationRepository.GetAll();
         }
 
-        public Relation GetRelation(int id)
+        public Relation GetRelation(long id)
         {
             return _relationRepository.GetRelation(id);
         }
 
-        public void AddVisitCount(int id)
+        public void AddVisitCount(long id)
         {
             _relationRepository.AddVisitCount(id);
         }

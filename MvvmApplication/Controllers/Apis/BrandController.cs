@@ -24,7 +24,7 @@ namespace MvvmApplication.Controllers.Apis
         }
 
         // GET api/company
-        public Brand GetBrand(int id)
+        public Brand GetBrand(long id)
         {
             return _brandService.GetBrand(id);
         }

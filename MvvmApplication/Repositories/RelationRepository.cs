@@ -7,10 +7,10 @@ namespace MvvmApplication.Repositories
     public interface IRelationRepository
     {
         IEnumerable<Relation> GetAll();
-        Relation GetRelation(int id);
-        IEnumerable<Relation> GetRelationsByUserId(int userId);
-        IEnumerable<Relation> GetRelationsByBrandId(int brandId);
-        void AddVisitCount(int id);
+        Relation GetRelation(long id);
+        IEnumerable<Relation> GetRelationsByUserId(long userId);
+        IEnumerable<Relation> GetRelationsByBrandId(long brandId);
+        void AddVisitCount(long id);
     }
 
     public class RelationRepository : IRelationRepository
@@ -27,22 +27,22 @@ namespace MvvmApplication.Repositories
             return _relationSqlPersistence.GetAll();
         }
 
-        public Relation GetRelation(int id)
+        public Relation GetRelation(long id)
         {
             return _relationSqlPersistence.GetRelation(id);
         }
 
-        public IEnumerable<Relation> GetRelationsByUserId(int userId)
+        public IEnumerable<Relation> GetRelationsByUserId(long userId)
         {
             return _relationSqlPersistence.GetRelationsByUserId(userId);
         }
 
-        public IEnumerable<Relation> GetRelationsByBrandId(int brandId)
+        public IEnumerable<Relation> GetRelationsByBrandId(long brandId)
         {
             return _relationSqlPersistence.GetRelationsByBrandId(brandId);
         }
 
-        public void AddVisitCount(int id)
+        public void AddVisitCount(long id)
         {
             _relationSqlPersistence.AddVisitCount(id);
         }

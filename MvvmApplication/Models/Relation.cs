@@ -2,10 +2,10 @@
 {
     public class Relation
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public int BrandId { get; set; }
-        public int VisitCount { get; set; }
+        public long Id { get; set; }
+        public long UserId { get; set; }
+        public long BrandId { get; set; }
+        public long VisitCount { get; set; }
         public string Reason { get; set; } 
     }
 }
