@@ -32,19 +32,10 @@ namespace MvvmApplication.Tests.Services
         public void GetAll()
         {
             var allBrands = _brandService.GetAll();
+
             _brandRepository.Verify(x => x.GetAll(), Times.Once);
+
             Assert.AreEqual(allBrands, _brands);
-        }
-        
-        [Test]
-        public void GetBrand()
-        {
-            long brandId = 10001L; 
-            var result = _brands.First();
-            _brandRepository.Setup(x => x.GetBrand(brandId)).Returns(result);
-            var brand = _brandService.GetBrand(brandId);
-            _brandRepository.Verify(x => x.GetBrand(brandId), Times.Once);
-            Assert.AreEqual(result, brand);
         }
 
         [Test]
@@ -52,7 +43,9 @@ namespace MvvmApplication.Tests.Services
         {
             var result = _brands.FirstOrDefault(x => x.Id == 1);
             _brandRepository.Setup(x => x.GetBrand(1)).Returns(result);
+
             var brand = _brandService.GetBrand(1);
+
             _brandRepository.Verify(x => x.GetBrand(1), Times.Once);
             Assert.AreEqual(brand, result);
         }
@@ -61,7 +54,9 @@ namespace MvvmApplication.Tests.Services
         public void GetBrandsByUserId_GivenUserId_ReturnAllUsersBrands()
         {
             _relationRepository.Setup(x => x.GetRelationsByUserId(1)).Returns(_relations);
+
             var brands = _brandService.GetBrandsByUserId(1);
+
             _relationRepository.Verify(x => x.GetRelationsByUserId(1), Times.Once);
             Assert.AreEqual(_relations.Count, brands.Count());
         }

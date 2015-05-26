@@ -9,14 +9,15 @@ namespace MvvmApplication.Services
     {
         IEnumerable<User> GetAll();
         User GetUser(long id);
+        IEnumerable<User> GetUsersByBrandId(long brandId);
     }
 
     public class UserService : IUserService
     {
-        private readonly UserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IRelationRepository _relationRepository;
 
-        public UserService(UserRepository userRepository, IRelationRepository relationRepository)
+        public UserService(IUserRepository userRepository, IRelationRepository relationRepository)
         {
             _userRepository = userRepository;
             _relationRepository = relationRepository;
@@ -32,7 +33,7 @@ namespace MvvmApplication.Services
             return _userRepository.GetUser(id);
         }
 
-        public IEnumerable<User> GetUsersByBrandId(int brandId)
+        public IEnumerable<User> GetUsersByBrandId(long brandId)
         {
             var users = GetAll();
             var relations = _relationRepository.GetRelationsByBrandId(brandId);
