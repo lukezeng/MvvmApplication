@@ -7,6 +7,7 @@ namespace MvvmApplication.Repositories
     public interface IBrandRepository
     {
         IEnumerable<Brand> GetAll();
+        Brand GetBrand(int id);
     }
 
     public class BrandRepository : IBrandRepository

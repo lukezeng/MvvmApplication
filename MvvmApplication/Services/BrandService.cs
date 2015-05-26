@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MvvmApplication.Models;
 using MvvmApplication.Repositories;
 
@@ -8,15 +9,18 @@ namespace MvvmApplication.Services
     {
         IEnumerable<Brand> GetAll();
         Brand GetBrand(int id);
+        IEnumerable<Brand> GetBrandsByUserId(int userId);
     }
 
     public class BrandService : IBrandService
     {
-        private readonly BrandRepository _brandRepository;
+        private readonly IBrandRepository _brandRepository;
+        private readonly IRelationRepository _relationRepository;
 
-        public BrandService(BrandRepository brandRepository)
+        public BrandService(IBrandRepository brandRepository, IRelationRepository relationRepository)
         {
             _brandRepository = brandRepository;
+            _relationRepository = relationRepository;
         }
 
         public IEnumerable<Brand> GetAll()
@@ -28,5 +32,12 @@ namespace MvvmApplication.Services
         {
             return _brandRepository.GetBrand(id);
         }
+
+        public IEnumerable<Brand> GetBrandsByUserId(int userId)
+        {
+            var brands = GetAll();
+            var relations = _relationRepository.GetRelationsByUserId(userId);
+            return relations.Select(relation => brands.FirstOrDefault(x => x.Id == relation.BrandId));
+        } 
     }
 }

@@ -8,6 +8,7 @@ namespace MvvmApplication.SqlPersistances
     {
         IEnumerable<Relation> GetAll();
         Relation GetRelation(int id);
+        IEnumerable<Relation> GetRelationsByUserId(int userId);
         void AddVisitCount(int id);
     }
 
@@ -49,6 +50,11 @@ namespace MvvmApplication.SqlPersistances
         public Relation GetRelation(int id)
         {
             return _tmpRelation.FirstOrDefault(x => x.Id == id);
+        }
+
+        public IEnumerable<Relation> GetRelationsByUserId(int userId)
+        {
+            return _tmpRelation.Where(x => x.UserId == userId);
         }
 
         public void AddVisitCount(int id)
