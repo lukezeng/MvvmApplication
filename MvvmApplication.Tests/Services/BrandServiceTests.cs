@@ -39,7 +39,7 @@ namespace MvvmApplication.Tests.Services
         [Test]
         public void GetBrand()
         {
-            const int brandId = 10001; 
+            long brandId = 10001L; 
             var result = _brands.First();
             _brandRepository.Setup(x => x.GetBrand(brandId)).Returns(result);
             var brand = _brandService.GetBrand(brandId);

@@ -7,7 +7,7 @@ namespace MvvmApplication.Repositories
     public interface IBrandRepository
     {
         IEnumerable<Brand> GetAll();
-        Brand GetBrand(int id);
+        Brand GetBrand(long id);
     }
 
     public class BrandRepository : IBrandRepository
@@ -24,7 +24,7 @@ namespace MvvmApplication.Repositories
             return _brandSqlPersistence.GetAll();
         }
 
-        public Brand GetBrand(int id)
+        public Brand GetBrand(long id)
         {
             return _brandSqlPersistence.GetBrand(id);
         }

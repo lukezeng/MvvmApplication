@@ -8,7 +8,7 @@ namespace MvvmApplication.Services
     public interface IBrandService
     {
         IEnumerable<Brand> GetAll();
-        Brand GetBrand(int id);
+        Brand GetBrand(long id);
         IEnumerable<Brand> GetBrandsByUserId(int userId);
     }
 
@@ -28,7 +28,7 @@ namespace MvvmApplication.Services
             return _brandRepository.GetAll();
         }
 
-        public Brand GetBrand(int id)
+        public Brand GetBrand(long id)
         {
             return _brandRepository.GetBrand(id);
         }

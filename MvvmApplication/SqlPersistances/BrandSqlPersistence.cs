@@ -7,7 +7,7 @@ namespace MvvmApplication.SqlPersistances
     public interface IBrandSqlPersistence
     {
         IEnumerable<Brand> GetAll();
-        Brand GetBrand(int id);
+        Brand GetBrand(long id);
     }
 
     public class BrandSqlPersistence : IBrandSqlPersistence
@@ -56,7 +56,7 @@ namespace MvvmApplication.SqlPersistances
             return _tmpBrand;
         }
 
-        public Brand GetBrand(int id)
+        public Brand GetBrand(long id)
         {
             var brand = _tmpBrand.FirstOrDefault(x => x.Id == id);
             return brand ?? _tmpBrand.FirstOrDefault(x => x.Id == 0);
